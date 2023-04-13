@@ -1,0 +1,30 @@
+{
+  "name": "openai-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "train": "bin/train.js",
+    "do:format-data": "openai tools fine_tunes.prepare_data -f $NAME",
+    "do:upload": "npm run train --task=upload",
+    "do:fine-tune": "npm run train --task=fineTuneModel",
+    "do:list": "npm run train --task=listFineTuneModel",
+    "do:completion": "npm run train --task=createCompletion",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/playground/gpt-training.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/playground/gpt-training/issues"
+  },
+  "homepage": "https://github.com/playground/gpt-training#readme",
+  "dependencies": {
+    "openai": "^3.2.1",
+    "rxjs": "^7.8.0"
+  }
+}

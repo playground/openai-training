@@ -1,0 +1,19 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y tzdata curl pip unzip vim zip
+RUN pip install virtualenv
+
+ENV VIRTUAL_ENV /env
+ENV PATH /env/bin:$PATH
+
+#RUN virtualenv venv
+
+RUN curl -sL https://deb.nodesource.com/setup_16.x  | bash
+RUN apt-get -yq install nodejs
+
+WORKDIR /server
+COPY package.json .
+RUN npm install
+
+RUN pip3 install --upgrade openai openai"[datalib]"
+
